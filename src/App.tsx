@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
-import Table, { ColumnsType } from 'antd/es/table';
+import { Space, Table, Button } from 'antd';
+import type { ColumnsType } from 'antd/es/table';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { ARTEM_ROUTE, VLAD_ROUTE } from './app/routing/config';
 import MainRouter from './app/routing';
@@ -52,30 +54,28 @@ const columns: ColumnsType<DataType> = [
     key: 'horsePower'
   }
 ]
-const data: DataType[] = [
-  {
-    id: 1,
-    name: 'Chery Tiggo Pro Max 8',
-    price: 3120000,
-    zeroToHundred: 8.5,
-    mileage: 2000,
-    year: 2023,
-    horsePower: 5000
-  },
-  {
-    id: 2,
-    name: 'Chery Tiggo Pro Max 7',
-    price: 20550000,
-    zeroToHundred: 9.8,
-    mileage: 4000,
-    year: 2022,
-    horsePower: 5500
-  }
-]
 
-const App = () => {
+const App: React.FC = () => {
+  const [page, setPage] = useState<number>(1);
+  const [dataSource, setDataSource] = useState<DataType[]>();
+  const limit = 3;
+
+  const getVehicles = async (page: number, limit: number) => {
+    const response = await axios.get(`https://localhost:7233/api/vehicle/retrieve?page=${page}&limit=${(limit)}`);
+    setDataSource(response.data);
+  }
+
+  useEffect(() => {
+    getVehicles(page, limit);
+  }, [page])
+
   return (
-    <Table dataSource={data} columns={columns} />
+    <>
+    <Table dataSource={dataSource} columns={columns} pagination={false} />
+    <Button onClick={() => setPage(page - 1)} disabled={page == 1}>Назад</Button>
+    <Button onClick={() => setPage(page + 1)} disabled={dataSource?.length === undefined ? true : dataSource.length < limit}>Вперед</Button>
+    <h1>{(page)}</h1>
+    </>
   );
 }
 
