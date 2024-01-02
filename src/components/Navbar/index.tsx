@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import MainRouter from '../../app/routing';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { LANDING_PATH, ABOUT_PATH, DRIVERS_PATH, VEHICLES_PATH, } from '../../app/routing/config';
 
 const Navbar = () => {
