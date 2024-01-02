@@ -57,7 +57,7 @@ const Vehicles: React.FC = () => {
     const [limit, setLimit] = useState<number>(3);
   
     const getVehicles = async (page: number, limit: number) => {
-      const response = await axios.get(`https://localhost:7233/api/vehicle/retrieve?page=${page}&limit=${(limit)}`);
+      const response = await axios.get(`https://localhost:7233/api/vehicle/retrieve?page=${page}&limit=${limit}`);
       setDataSource(response.data);
     }
   
