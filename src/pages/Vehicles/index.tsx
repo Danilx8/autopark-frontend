@@ -54,7 +54,7 @@ const columns: ColumnsType<VehicleData> = [
 const Vehicles: React.FC = () => {
     const [page, setPage] = useState<number>(1);
     const [dataSource, setDataSource] = useState<VehicleData[]>();
-    const [limit, setLimit] = useState<number>(3);
+    const [limit] = useState<number>(3);
   
     const getVehicles = async (page: number, limit: number) => {
       const response = await axios.get(`https://localhost:7233/api/vehicle/retrieve?page=${page}&limit=${limit}`);
@@ -63,12 +63,12 @@ const Vehicles: React.FC = () => {
   
     useEffect(() => {
       getVehicles(page, limit);
-    }, [page])
+    })
   
     return (
       <>
       <Table dataSource={dataSource} columns={columns} pagination={false} />
-      <Button onClick={() => setPage(page - 1)} disabled={page == 1}>Назад</Button>
+      <Button onClick={() => setPage(page - 1)} disabled={page === 1}>Назад</Button>
       <Button onClick={() => setPage(page + 1)} disabled={dataSource?.length === undefined ? true : dataSource.length < limit}>Вперед</Button>
       <h1>{(page)}</h1>
       </>
