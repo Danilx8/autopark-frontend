@@ -2,6 +2,7 @@ import { Table, Button } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
 interface VehicleData {
     id: number;
@@ -51,6 +52,11 @@ const columns: ColumnsType<VehicleData> = [
     }
 ]
 
+// const StyledAntButton = styled(Button)`
+//     margin: 2rem 1rem 0rem 0rem;
+// `;
+
+
 const Vehicles: React.FC = () => {
     const [page, setPage] = useState<number>(1);
     const [dataSource, setDataSource] = useState<VehicleData[]>();
@@ -68,8 +74,8 @@ const Vehicles: React.FC = () => {
     return (
       <>
       <Table dataSource={dataSource} columns={columns} pagination={false} />
-      <Button onClick={() => setPage(page - 1)} disabled={page === 1}>Назад</Button>
-      <Button onClick={() => setPage(page + 1)} disabled={dataSource?.length === undefined ? true : dataSource.length < limit}>Вперед</Button>
+      <StyledAntButton onClick={() => setPage(page - 1)} disabled={page === 1}>Назад</StyledAntButton>
+      <StyledAntButton onClick={() => setPage(page + 1)} disabled={dataSource?.length === undefined ? true : dataSource.length < limit}>Вперед</StyledAntButton>
       <h1>{(page)}</h1>
       </>
     );
