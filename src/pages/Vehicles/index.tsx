@@ -74,8 +74,8 @@ const Vehicles: React.FC = () => {
     return (
       <>
       <Table dataSource={dataSource} columns={columns} pagination={false} />
-      <StyledAntButton onClick={() => setPage(page - 1)} disabled={page === 1}>Назад</StyledAntButton>
-      <StyledAntButton onClick={() => setPage(page + 1)} disabled={dataSource?.length === undefined ? true : dataSource.length < limit}>Вперед</StyledAntButton>
+      <Button onClick={() => setPage(page - 1)} disabled={page === 1}>Назад</Button>
+      <Button onClick={() => setPage(page + 1)} disabled={dataSource?.length === undefined ? true : dataSource.length < limit}>Вперед</Button>
       <h1>{(page)}</h1>
       </>
     );
