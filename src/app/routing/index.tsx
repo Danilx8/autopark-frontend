@@ -1,14 +1,16 @@
-import { DRIVERS_PATH, VEHICLES_PATH, ABOUT_PATH, LANDING_PATH, REGISTER_PATH } from './config';
+import { DRIVERS_PATH, VEHICLES_PATH, ABOUT_PATH, LANDING_PATH, REGISTER_PATH, GENA_PATH } from './config';
 import { useRoutes, Navigate, RouteObject } from 'react-router-dom';
 import Vehicles from '../../pages/Vehicles';
 import About from '../../pages/About';
 import Landing from '../../pages/Landing';
 import Drivers from '../../pages/Drivers';
 import Register from '../../pages/Register';
+import Gena from '../../pages/Gena';
 
 const MainRouter = ({ isLoggedIn = false }) => {
   const publicPaths: RouteObject[] = [
     { path: ABOUT_PATH, element: <About /> },
+    { path: GENA_PATH, element: <Gena /> },
     { path: LANDING_PATH, element: <Landing /> },
     { path: "*", element: <Navigate to={'/'} replace /> }
   ];

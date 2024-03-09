@@ -60,7 +60,7 @@ const columns: ColumnsType<VehicleData> = [
 const Vehicles: React.FC = () => {
     const [page, setPage] = useState<number>(1);
     const [dataSource, setDataSource] = useState<VehicleData[]>();
-    const [limit] = useState<number>(3);
+    const [limit] = useState<number>(10);
   
     const getVehicles = async (page: number, limit: number) => {
       const response = await axios.get(`https://localhost:7233/api/vehicle/retrieve?page=${page}&limit=${limit}`);

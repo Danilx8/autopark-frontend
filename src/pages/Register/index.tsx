@@ -1,9 +1,12 @@
+import { PDFDownloadLink } from "@react-pdf/renderer";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { RegisterInfoDocument } from "./document";
 
-interface IRegisterForm {
+export interface IRegisterForm {
     email: string;
     password: string;
+    pictures: FileList;
 }
 
 const Register = () => {
@@ -16,10 +19,10 @@ const Register = () => {
         mode: "onBlur", // парметр onBlur - отвечает за запуск валидации при не активном состоянии поля
     })
 
-    const [credentials, setCredentials] = useState<IRegisterForm[]>([])
+    const [task, setTask] = useState<IRegisterForm>();
 
     const saveElement: SubmitHandler<IRegisterForm> = data => {
-        setCredentials((prev) => [...prev, data]);
+        setTask(data);
         reset();
     }
 
@@ -55,14 +58,31 @@ const Register = () => {
                     })
                     } />
                 <div>{errors.password?.message}</div>
+                <label htmlFor="pictures">Изображение</label>
+                <br />
+                <input 
+                    type="file"
+                    accept="image/*"
+                    {...register("pictures", {
+                        required: "Обязательно надо добавить картинку"
+                    })}
+                />
                 <button type="submit">Отправить</button>
             </form>
             {
-                credentials.map((data) =>
-                    <p>
-                        {data?.email} - {data?.password}
-                    </p>
-                )
+                !!task?.email &&
+                <PDFDownloadLink
+                    document={
+                        <RegisterInfoDocument
+                            email={task.email}
+                            password={task.password}
+                            pictures={task.pictures}
+                        />
+                    }
+                    fileName="file.pdf" // Или любое другое название
+                >
+                    {({blob, url, loading, error}) => (loading ? 'Загрузка...' : 'Скачать')}
+                </PDFDownloadLink>
             }
         </>
     );

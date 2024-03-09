@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import MainRouter from '../../app/routing';
 import { useState } from 'react';
-import { LANDING_PATH, ABOUT_PATH, DRIVERS_PATH, VEHICLES_PATH, REGISTER_PATH, } from '../../app/routing/config';
+import { LANDING_PATH, ABOUT_PATH, DRIVERS_PATH, VEHICLES_PATH, REGISTER_PATH, GENA_PATH, } from '../../app/routing/config';
 import styled from 'styled-components';
 
 const NavigationWrapper = styled.nav`
@@ -69,7 +69,7 @@ const Navbar = () => {
         <>
             <NavigationWrapper>
                 <LinkWrapper to={LANDING_PATH}>Главная</LinkWrapper>
-                <LinkWrapper to={ABOUT_PATH}>О нас</LinkWrapper>
+                <LinkWrapper to={GENA_PATH}>О нас</LinkWrapper>
                 <ButtonWrapper onClick={changeTheme}>Сменить тему</ButtonWrapper>
                 {isLoggedIn ? (
                     <>
