@@ -39,7 +39,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky",
-    "lint": "eslint --fix --ext .ts,.tsx ."
+    "prettify": "prettier --write './src/**/*.{js,json,jsx,ts,tsx,css}'",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "browserslist": {
     "production": [
@@ -65,9 +66,9 @@
     "vite-plugin-eslint": "^1.8.1"
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": [
-      "npx prettier --write",
-      "npx eslint --fix"
+    "./src/**/*.{js,json,jsx,ts,tsx,css}": [
+      "prettify",
+      "eslint --fix"
     ]
   }
 }
