@@ -1,16 +1,23 @@
-import { Link } from 'react-router-dom';
-import MainRouter from '../../app/routing';
-import { useState } from 'react';
-import { LANDING_PATH, ABOUT_PATH, DRIVERS_PATH, VEHICLES_PATH, REGISTER_PATH, GENA_PATH, } from '../../app/routing/config';
-import styled from 'styled-components';
+import { Link } from "react-router-dom";
+import MainRouter from "../../app/routing";
+import { useState } from "react";
+import {
+    LANDING_PATH,
+    ABOUT_PATH,
+    DRIVERS_PATH,
+    VEHICLES_PATH,
+    REGISTER_PATH,
+    GENA_PATH,
+} from "../../app/routing/config";
+import styled from "styled-components";
 
 const NavigationWrapper = styled.nav`
-        position: fixed;
-        top: 0em;
-        width: 100%;
-        box-sizing: border-box;
-        height: 5rem;
-    `
+    position: fixed;
+    top: 0em;
+    width: 100%;
+    box-sizing: border-box;
+    height: 5rem;
+`;
 
 const LinkWrapper = styled(Link)`
     margin: 1rem 0rem 1rem 0rem;
@@ -22,7 +29,7 @@ const LinkWrapper = styled(Link)`
     text-align: center;
     padding: 1rem 2rem;
     text-decoration: none;
-`
+`;
 
 const ButtonWrapper = styled.button`
     float: right;
@@ -38,7 +45,7 @@ const ButtonWrapper = styled.button`
     cursor: pointer;
     position: relative;
     text-decoration: none;
-`
+`;
 
 const Container = styled.div`
     margin: 5rem 0rem;
@@ -49,27 +56,27 @@ const Container = styled.div`
     height: 100%;
     width: 100%;
     box-sizing: border-box;
-`
+`;
 
 const Navbar = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
-    const [currentTheme, setCurrentTheme] = useState<"dark" | "light">('light')
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [currentTheme, setCurrentTheme] = useState<"dark" | "light">("light");
 
     const changeTheme = () => {
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
-        document.documentElement.setAttribute('data-theme', newTheme)
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", newTheme);
         setCurrentTheme(newTheme);
-    }
+    };
 
     const toggleAuthentication = () => {
         setIsLoggedIn(!isLoggedIn);
-    }
+    };
 
     return (
         <>
             <NavigationWrapper>
                 <LinkWrapper to={LANDING_PATH}>Главная</LinkWrapper>
-                <LinkWrapper to={GENA_PATH}>О нас</LinkWrapper>
+                <LinkWrapper to={ABOUT_PATH}>О нас</LinkWrapper>
                 <ButtonWrapper onClick={changeTheme}>Сменить тему</ButtonWrapper>
                 {isLoggedIn ? (
                     <>
@@ -89,6 +96,6 @@ const Navbar = () => {
             </Container>
         </>
     );
-}
+};
 
 export default Navbar;
