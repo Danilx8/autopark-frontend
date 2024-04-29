@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
     :root {
@@ -34,6 +34,6 @@ const GlobalStyles = createGlobalStyle`
         --button-color: #0000FF;
         --button-text-color: #DFDFFF;
     }
-`
+`;
 
 export default GlobalStyles;

@@ -10,6 +10,6 @@ const Landing = () => {
             </ul>
         </>
     );
-}
+};
 
 export default Landing;
