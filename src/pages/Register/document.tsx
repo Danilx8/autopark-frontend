@@ -6,11 +6,10 @@ export const RegisterInfoDocument: FC<IRegisterForm> = ({ email, password, pictu
     const styles = StyleSheet.create({
         page: {
             flexDirection: "row",
-            backgroundColor: "#E4E4E4",
+            backgroundColor: "white",
         },
         section: {
             margin: 10,
-            padding: 10,
             flexGrow: 1,
         },
     });
@@ -19,15 +18,11 @@ export const RegisterInfoDocument: FC<IRegisterForm> = ({ email, password, pictu
         <Document>
             <Page size="A4" style={styles.page} wrap>
                 <View style={styles.section}>
-                    <Text>Section #1</Text>
+                    <Text>
+                        {email}: {password}
+                    </Text>
+                    {pictures && <Image source={pictures[0]} />}
                 </View>
-                <View style={styles.section}>
-                    <Text>{email}</Text>
-                </View>
-                <View style={styles.section}>
-                    <Text>{password}</Text>
-                </View>
-                <View style={styles.section}>{pictures && <Image source={pictures[0]} />}</View>
             </Page>
         </Document>
     );

@@ -14,7 +14,6 @@ const Register = () => {
         register, // метод для регистрации вашего инпута, для дальнейшей работы с ним
         handleSubmit, // метод для получения данных формы, если валидация прошла успешна
         formState: { errors }, // errors - список ошибок валидации для всех полей формы
-        reset, // метод для очистки полей формы
     } = useForm<IRegisterForm>({
         mode: "onBlur", // парметр onBlur - отвечает за запуск валидации при не активном состоянии поля
     });
@@ -23,7 +22,6 @@ const Register = () => {
 
     const saveElement: SubmitHandler<IRegisterForm> = (data) => {
         setTask(data);
-        reset();
     };
 
     return (
