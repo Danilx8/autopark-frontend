@@ -66,8 +66,8 @@
     "vite-plugin-eslint": "^1.8.1"
   },
   "lint-staged": {
-    "./src/**/*.{js,json,jsx,ts,tsx,css}": [
-      "prettify",
+    "./src/**/*.{js,json,jsx,ts,tsx}": [
+      "npm run prettify",
       "eslint --fix"
     ]
   }

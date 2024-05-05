@@ -6,12 +6,12 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import GlobalStyles from "./global-styles";
 
-const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(
-    <BrowserRouter>
-        <GlobalStyles />
-        <App />
-    </BrowserRouter>,
+  <BrowserRouter>
+    <GlobalStyles />
+    <App />
+  </BrowserRouter>,
 );
 
 // If you want to start measuring performance in your app, pass a function

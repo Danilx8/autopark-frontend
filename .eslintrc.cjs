@@ -1,37 +1,35 @@
 module.exports = {
   "env": {
     "browser": true,
-    "es2021": true,
+    "es2021": true
   },
   "extends": [
     "standard-with-typescript",
-    "plugin:prettier/recommended",
+    "plugin:prettier/recommended"
   ],
   "overrides": [
     {
       "env": {
-        "node": true,
+        "node": true
       },
       "files": [
-        ".eslintrc.{js,cjs}",
+        ".eslintrc.{js,cjs}"
       ],
       "parserOptions": {
-        "sourceType": "script",
-
-      },
-    },
+        "sourceType": "script"
+      }
+    }
   ],
   "parserOptions": {
     "ecmaVersion": "latest",
-    "sourceType": "module",
-
+    "sourceType": "module"
   },
   "plugins": [
     "react",
-    "prettier",
+    "prettier"
   ],
   "rules": {
-    'prettier/prettier': 'error',
+    "prettier/prettier": "error",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-misused-promises": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",
@@ -39,6 +37,7 @@ module.exports = {
     "@typescript-eslint/no-unsafe-argument": "off",
     "@typescript-eslint/no-floating-promises": "off",
     "@typescript-eslint/consistent-type-imports": "off",
-    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-non-null-assertion": "off"
   },
+  ignorePatterns: ["vite-env.d.ts", "vite.config.ts"]
 };
