@@ -16,7 +16,7 @@ jobs:
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
-          const textToAdd = 'Луговских Данил 321-323';
+          const textToAdd = 'Луговских Данил 221-323';
           const newDescription = textToAdd;
           github.pulls.update({
             owner: context.repo.owner,
