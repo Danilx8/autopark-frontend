@@ -3,6 +3,7 @@ import { FC } from "react";
 import { IRegisterForm } from ".";
 
 export const RegisterInfoDocument: FC<IRegisterForm> = ({ email, password, pictures }) => {
+
     const styles = StyleSheet.create({
         page: {
             flexDirection: "row",
