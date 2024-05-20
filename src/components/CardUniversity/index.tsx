@@ -1,10 +1,5 @@
-import { FC } from "react";
 import styled from "styled-components";
-
-export interface IUniversity {
-  country: string;
-  name: string;
-}
+import { FC } from "react";
 
 const CardStyled = styled.div`
   height: 50px;
@@ -12,10 +7,16 @@ const CardStyled = styled.div`
   color: red;
 `;
 
+export interface IUniversity {
+  country: string;
+  name: string;
+}
+
 const CardUniversity: FC<{ data: IUniversity }> = ({ data }) => (
   <CardStyled>
-    <title>{data.name}</title>
-    <span>{data.country}</span>
+    <span>
+      {data.name} - {data.country}
+    </span>
   </CardStyled>
 );
 
