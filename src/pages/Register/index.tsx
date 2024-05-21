@@ -10,19 +10,19 @@ export interface IRegisterForm {
 }
 
 const Register = () => {
-    const {
-        register, // метод для регистрации вашего инпута, для дальнейшей работы с ним
-        handleSubmit, // метод для получения данных формы, если валидация прошла успешна
-        formState: { errors }, // errors - список ошибок валидации для всех полей формы
-    } = useForm<IRegisterForm>({
-        mode: "onBlur", // парметр onBlur - отвечает за запуск валидации при не активном состоянии поля
-    });
-  
-    const [task, setTask] = useState<IRegisterForm>();
-  
-    const saveElement: SubmitHandler<IRegisterForm> = (data) => {
-        setTask(data);
-    };
+  const {
+    register, // метод для регистрации вашего инпута, для дальнейшей работы с ним
+    handleSubmit, // метод для получения данных формы, если валидация прошла успешна
+    formState: { errors }, // errors - список ошибок валидации для всех полей формы
+  } = useForm<IRegisterForm>({
+    mode: "onBlur", // парметр onBlur - отвечает за запуск валидации при не активном состоянии поля
+  });
+
+  const [task, setTask] = useState<IRegisterForm>();
+
+  const saveElement: SubmitHandler<IRegisterForm> = (data) => {
+    setTask(data);
+  };
 
   return (
     <>
